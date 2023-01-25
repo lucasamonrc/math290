@@ -1,0 +1,184 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework 07}
+
+\begin{flushright}
+\textsc{Lucas Castro}  \\
+Math 290 Sec 01\\
+Date 01/25/2023
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment HW 7} \\
+\textsf{Exercises: Section 7.E}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.1.}
+Let $a \in \Z$. Prove that if $a^2 + 3$ is odd, then $a$ is even.
+\end{exercise}
+
+\begin{proof}
+Let $a \in \Z$. We work contrapositively. Assume $a$ is odd. Thus $a = 2k + 1$ for some $k \in \Z$. We find
+\[a^2 + 3 = (2k +  1)^2 + 3 = (4k^2 + 4k + 1) + 3 = 4k^2 + 4k + 4 = 2(2(k^2 + k + 1))\]
+is even.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.2.}
+Prove the following: Let $x,y \in \Z$. If $xy+y^2$ is even, then $x$ is odd or $y$ is even.
+\end{exercise}
+
+\begin{proof}
+Let $x,y \in \Z$. We work contrapositively. Assume $x$ is even and $y$ is odd. Thus $x = 2k$ and $y = 2k + 1$ for some $k \in Z$. We find
+\begin{eqnarray*}
+xy + y^2  &=& 2k(2k + 1) + (2k + 1)^2\\
+&=& 4k^2 + 2k + (4k^2 + 4k + 1) = 8k^2 + 6k + 1\\ 
+&=& 2(4k^2 + 3k) + 1 
+\end{eqnarray*}
+is odd
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.3.}
+Let $s \in \Z$. Prove that $s$ is odd if and only if $s^3$ is odd.
+\end{exercise}
+
+\begin{proof}
+($\Rightarrow$): We first prove that if $s$ is odd, then $n^3$ is odd. We work directly, so assume $s$ is odd. Then $s=2k + 1$ for some $k \in \Z$. Hence
+\[n^3 = (2k + 1)^3=8k^3+12k^2+6k+1=2(4k^3+6k^2+3k)+1\]
+is an odd integer.
+
+($\Leftarrow$): We now prove conversely, that if $s^3$ is odd, then $s$ is odd. We work contrapositively, so assume $s$ is even. Then $s = 2k$ for some $k \in \Z$. Hence
+\[s^3=(2k)^3=8k^3=2(4k^3)\]
+is an even integer.
+    
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.4.}
+Consider the following situation. A student is asked to prove the statement: "Given $x \in \Z$, if $2|x$, then $x$ is even." The student writes: "Assume, contrapositively, that $x$ is even. Then $x = 2k$ for some $k \in \Z$. Hence $2|x$."
+
+Identify what is wrong with this student's proof and write a correct proof.
+\end{exercise}
+
+\begin{proof}[Explanation]
+The student states to work contrapositively; however, it assumes that $x$ is even which indicates that the work will be a direct proof. The corrected proof is demonstrated below.
+\end{proof}
+
+\begin{proof}
+Let $x \in \Z$. We work directly. Assume $x$ is even. Thus $x = 2k$ for some $k \in \Z$. Now
+\[x = 2a \text{ for some } a \in \Z.\]
+Since $a \in \Z$, $a$ is equivalent to $k$. Therefore, $2|x$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.5.}
+Let $a,b,c,d \in \Z$. Prove that if $a|c$ and $b|d$, then $ab|cd$.
+\end{exercise}
+
+\begin{proof}
+Let $a,b,c,d \in \Z$. We work directly. Assume $a|c$ and $b|d$. Thus $c=ax$ and $d=by$ for some $x,y \in \Z$. 
+
+Now,
+\begin{eqnarray*}
+cd &=& (ax)(by) = (ab)(xy)
+\end{eqnarray*}
+Since $xy \in \Z$, we have $ab|cd$
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.6.}
+State the contrapositive of the implication in the previous exercise.
+\end{exercise}
+
+\begin{proof}[Solution] Original: If $a|c$ and $b|d$, then $ab|cd$. \\
+Contrapositive: If $ab \nmid cd$, then $a \nmid c$ or $b \nmid d$. 
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.7.}
+Let $a \in \Z$. Prove that if $4 \nmid a^2$, then $a$ is odd.
+\end{exercise}
+
+\begin{proof}
+Let $a \in \Z$. We work contrapositively. Assume $a$ is even. Thus $a = 2k$ for some $k \in \Z$. We find
+\begin{eqnarray*}
+a^2 &=& 4b \text{ for some $b \in \Z$} \\
+(2k)^2 &=& 4b \\
+4k^2 &=& 4b \\
+k^2 &=& \frac{4b}{4} = b
+\end{eqnarray*}
+
+Since $b \in \Z$, then we conclude that if $4|a^2$ then $a$ is even. Therefore if $4 \nmid a^2$, then $a$ is odd.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{7.8.}
+Prove the following implication two ways (directly and contrapositively): Given $x \in \Z$, then $5x - 1$ is even only if $x$ is odd. (Be careful to prove the correct implication. See Subsection 4.D for the meaning of "only if".)
+\end{exercise}
+
+\begin{proof}
+Let $x \in \Z$. We work directly. Assume $x$ is odd. Thus $x = 2k + 1$ for some $k \in \Z$. We find
+\[5x - 1 = 5(2k + 1) - 1 = 10k + 5 - 1 = 10k + 4 = 2(5k + 2) \]
+is even.
+\end{proof}
+
+\begin{proof}
+Let $x \in \Z$. We work contrapositively. Assume $x$ is even. Thus $x = 2k$ for some $k \in \Z$. We find
+\[5x - 1 = 5(2k) - 1 = 10k - 1 = 2(5k) - 1 \]
+is odd.
+\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}
