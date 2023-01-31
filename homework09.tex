@@ -1,0 +1,212 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\renewcommand{\mod}[3]{#1 \equiv #2 \pmod{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Lucas Castro}  \\
+Math 290 Sec 01\\
+Date 01/30/2023
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment HW 9} \\
+\textsf{Exercises: 9E}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.1}
+Let $R$ and $S$ be statements. Draw a truth table with columns labeled $R, S, \lnot R$, and $\lnot R \implies S$. Verify that the only row where $S$ is false and $\lnot R \implies S$ is true occurs when $R$ is true.
+\end{exercise}
+
+\begin{proof}[Solution] 
+The truth table for $\lnot R \implies S$. Row 2 verifies that when $S$ is false and $\lnot R \implies S$ is true, $R$ is true.
+
+\begin{center}
+\begin{tabular}{ c|c|c|c }
+$R$ & $S$ & $\lnot R$ & $\lnot R \implies S$ \\
+\hline
+T & T & F & T \\
+T & F & F & T \\
+F & T & T & T \\
+F & F & T & F \\
+\end{tabular}
+\end{center}
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.2}
+Prove the following statement directly, contrapositively, and by contradiction: Given $x \in \Z$, if $3x + 1$ is even, then $5x + 2$ is odd.
+\end{exercise}
+
+\begin{proof}
+Let $x \in \Z$. We work directly. We assume $3x + 1$ is even. Thus $3x + 1 = 2k$ for some $k \in \Z$. We have
+\begin{eqnarray*}
+5x + 2 &=& 2x + 3x + 1 + 1 = 2x + 2k + 1 \\
+&=& 2(x + k) + 1
+\end{eqnarray*}
+is odd.
+\end{proof}
+
+\begin{proof}
+Let $x \in \Z$. We work contrapositively. We assume $5x + 2$ is even. Thus $5x + 2 = 2k$ for some $k \in \Z$. We know that the difference between an even number and an odd number is odd. Thus $(5x + 2) - (2x + 1)$ is odd. Now we have
+\[5x + 2 - 2x - 1 = 3x + 1\]
+is odd.
+\end{proof}
+
+\begin{proof}
+Let $x \in \Z$. Assume, by way of contradiction, that $3x + 1$ and $5x + 1$ are even for some $x \in \Z$. Thus $3x + 1 = 2k$ and $5x + 1 = 2l$ for some $k, l \in \Z$. We have
+\begin{eqnarray*}
+5x + 2 &=& 2x + 3x + 1 + 1 = 2x + 2k + 1 = 2(x + k) + 1\\
+2l - 2(x + k) &=& 1 \\
+2(l - x - k) &=& 1
+\end{eqnarray*}
+Therefore $1 = 2(l - x - k)$ is even, which is false. Thus, the original implication is true.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.3}
+Prove, by way of contradiction, the following statement: Given $a,b,c \in \Z$ with $a^2 + b^2 = c^2$, then $a$ is even or $b$ is even. (Hint: Consider Exercise 8.3.)
+\end{exercise}
+
+\begin{proof}
+Let $a,b,c \in \Z$. Assume, by way of contradiction, $a^2 + b^2 = c^2$ and that $a$ and $b$ are odd. Thus $a = 2k + 1$ and $b = 2l + 1$ for some $k, l \in \Z$. We have
+\begin{eqnarray*}
+c^2 &=& a^2 + b^2 = (2k + 1)^2 + (2l + 1)^2 \\
+&=& (4k^2 + 4k + 1) + (4l^2 + 4l + 1) \\
+&=& 4(k^2 + l^2 + k + l) + 2 
+\end{eqnarray*}
+Because $k,l \in \Z$, we can assume that $k^2 + l^2 + k + l = n$ for some $n \in \Z$. We continue
+\[c^2 = 4(k^2 + l^2 + k + l) + 2 = 4n + 2 = 2(2n + 1)\]
+We can conclude that $2$ is a factor of $c^2$; however, $2^2$ is not a factor of $c^2$ since $2n + 1$ is odd and it cannot have a factor of $2$. Therefore, $c^2$ can never be a perfect square. Hence, $\not\exists c \in \Z$ such that if $a^2 + b^2 = c^2$, then $a$ and $c$ are odd.
+
+So, by way of contradiction, either $a$ is even or $b$ is even.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.4}
+Prove that $\sqrt{3}$ is irrational.
+\end{exercise}
+
+\begin{proof}
+Assume, by way of contradiction, that $\sqrt{3} \in \Q$. We can then write $\sqrt{3} = a/b$ for some $a,b \in \N$ with $a/b$ in lowest terms. By squaring and then clearing denominators, we have $a^2 = 3b^2$. Thus $3|a^2$, hence $3|a$. We write $a = 3x$ for some $x \in \Z$.
+
+Plugging $a = 3x$ into the equality $a^2 = 3b^2$ yields $9x^2 = 3b^2$, or in other words $b^2 = 3x^2$. Thus $3|b^2$, and hence $3|b$. However, now $a$ and $b$ are both divisible by $3$ which contradicts the fact that $a/b$ was assumed to be in lowest terms. Hence $\sqrt{3}$ is irrational.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.5}
+Prove that $\sqrt[3]{2}$ is irrational.
+\end{exercise}
+
+\begin{proof}
+Assume, by way of contradiction, that $\sqrt[3]{2} \in \Q$. We can then write $\sqrt[3]{2} = a/b$ for some $a,b \in \N$ with $a/b$ in lowest terms. By raising to the third power and clearing denominators, we have $a^3 = 2b^3$. Thus $2|a^3$, hence $2|a$. We write $a = 2x$ for some $x \in \Z$.
+
+Plugging $a = 2x$ into the equality $a^3 = 2b^3$ yields $8x^3 = 2b^3$, or in other words $b^3 = 4x^3 = 2(2x^3)$. Thus $2|b^3$, and hence $2|b$. However, now $a$ and $b$ are both even which contradicts the fact that $a/b$ was assumed to be in lowest terms. Hence $\sqrt[3]{2}$ is irrational. 
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.6}
+Prove: If $x \in \Q$ and $y \in \R - \Q$, then $x+y \in \R - \Q$.
+\end{exercise}
+
+\begin{proof}
+Assume, by way of contradiction, that $x \in \Q$ and $y \in \R - \Q$ and $x+y \in \Q$. Thus $x = a/b$ and $x + y = n/m$ for some $a,b,n,m \in \N$. We have
+\begin{eqnarray*}
+x + y &=& a/b + y = n/m \\
+y &=& \frac{n}{m} - \frac{a}{b} = \frac{nb - am}{mb}
+\end{eqnarray*}
+$\frac{nb - am}{mb} \in \Q$, however $y \in \R - \Q$.
+
+So, by way of contradiction, if $x \in \Q$ and $y \in \R - \Q$, then $x+y \in \R - \Q$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.7}
+Prove: If we are given a nonzero rational number $x$ and an irrational number $y$, then the number $xy$ is irrational. (Hint: Your proof should, somewhere, use the fact that $x \neq 0$, because when $x = 0$ the conclusion is false.)
+\end{exercise}
+
+\begin{proof}
+Assume, by way of contradiction, that $x \in \Q, x \neq 0$ and $y \in \R - \Q$ and $xy \in \Q$. Thus $x = a/b$ and $xy = n/m$ for some $a,b,n,m \in \N$. We have
+\begin{eqnarray*}
+xy &=& y(a/b) = n/m \\
+y &=& \frac{nb}{ma}
+\end{eqnarray*}
+$\frac{nb}{ma} \in \Q$, however $y \in \R - \Q$.
+
+So, by way of contradiction, if $x \in \Q$ and $x \neq 0$ and $y \in \R - \Q$, then $xy \in \R - \Q$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.8}
+Prove there is no smallest positive irrational number. (Hint: Use the result of the previous exercise.)
+\end{exercise}
+
+\begin{proof}
+Assume, by way of contradiction, that there is a smallest positive irrational number; call it $i \in \R - \Q$. Then $1/2$ (rational positive), from Exercise 9.7 we have that $1/2(i) = i/2 \in \R - \Q$ and we can conclude that $i/2 < i$. This contradicts our assumption. Therefore, there is no smallest positive irrational number.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{9.9}
+Given $x, y \in \Z$, prove that $33x + 132y \neq 57$.
+\end{exercise}
+
+\begin{proof}
+Let $x, y \in \Z$. Assume, by way of contradiction, that $33x + 132y = 57$. Dividing both sides by $3$ then subtracting $44y$ yields $11x = 19 - 44y$. Since $x, y \in \Z$, then $19 - 44y \in \Z$; however, $19$ is not divisible by $11$. Thus, our assumption is a contradiction. Therefore $33x + 132y \neq 57$.
+\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}

@@ -1,0 +1,268 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\renewcommand{\mod}[3]{#1 \equiv #2 \pmod{#3}}
+\newcommand{\nmod}[3]{#1 \not\equiv #2 \pmod{#3}}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Lucas Castro}  \\
+Math 290 Sec 01\\
+Date 01/28/2023
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment HW 8} \\
+\textsf{Exercises: Section 8D}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.1}
+Let $x,y \in \Z$. Prove that if $x$ and $y$ have the same parity, then $x^2 + xy$ is even.
+\end{exercise}
+
+\begin{proof}
+Let $x,y \in \Z$. We work directly. Thus, we assume $x$ and $y$ have same parity. We have two cases to consider.
+
+\textbf{Case 1}: Suppose $x \text{ and } y$ are even. Thus $x = 2k$ and $y = 2l$ for some $k,l \in \Z$. Then
+\[x^2 + xy = 4k^2 + 2k(2l) = 4k^2 + 4kl = 2(2k^2 + 2kl)\]
+is even.
+
+\textbf{Case 2}: Suppose $x \text{ and } y$ are odd. Thus $x = 2k + 1$ and $y = 2l + 1$ for some $k,l \in \Z$. Then
+\begin{eqnarray*}
+x^2 + xy  &=& (2k + 1)^2 + (2k + 1)(2l + 1)\\
+&=& 4k^2 + 4k + 1 + 4kl + 2k + 2l + 1 \\
+&=& 4k^2 + 4kl + 6k + 2l + 2 \\
+&=& 2(2k^2 + 2kl + 3k + l + 1)
+\end{eqnarray*}
+is even.
+
+In every case $x^2 + xy$ is even.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.2}
+Let $a,b,c \in \Z$. Prove that if $a \nmid bc$, then $a \nmid b$ and $a \nmid c$. (The converse is not true. Can you see why?)
+\end{exercise}
+
+\begin{proof}
+Let $a,b,c \in \Z$. We work contrapositively. Thus we assume that $a|b$ or $a|c$. We have two cases to consider.
+
+\textbf{Case 1}: Suppose $a|b$. Thus $b=ax$ for some $x \in \Z$ and $bc = ay$ for some $y \in \Z$. Because $\frac{b}{a} = x$, we have $xc = y$ is an integer. Therefore if $a|b$, then $a|bc$.
+
+\textbf{Case 2}: Similar to case 1, but applying the same reasoning for the $c$ variable instead of $b$.
+is an integer.
+
+In every case $a|bc$.
+\end{proof}
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.3}
+Do the following:
+
+(a) Prove that given $x \in \Z$, either $\mod{x^2}{0}{4}$ or $\mod{x^2}{1}{4}$.
+
+(b) Prove that for any integer $x$ we have $4|(x^4-x^2)$.
+\end{exercise}
+
+\begin{proof} {(a)}
+Let $x \in \Z$. We work directly. Since $x \in Z$, then $x$ is either even or odd.
+
+\textbf{Case 1}: Suppose $x$ is even. Thus $2|x$. In other words, $x = 2n$ for some $n \in \Z$. We have $x^2 = 4n^2$, hence $\mod{x^2}{0}{4}$.
+
+\textbf{Case 2}: Suppose $x$ is odd. Thus $x = 2k + 1$ for some $k \in \Z$. We have
+\begin{eqnarray*}
+x^2 &=& (2k + 1)^2\\
+&=& 4k^2 + 4k + 1
+\end{eqnarray*}
+Since $\mod{x^2}{1}{4}$ is $4|(x^2 - 1)$ which equals to $(x^2 - 1) = 4n$ for some $n \in \Z$. We have
+\[4k^2 + 4k + 1 - 1 = 4n\]
+\[4k^2 + 4k = 4n\]
+From this we can conclude that, $\mod{x^2}{1}{4}$ if $x$ is odd.
+
+Hence, either $\mod{x^2}{0}{4}$ or $\mod{x^2}{1}{4}$.
+\end{proof}
+
+
+\begin{proof} {(b)}
+Let $x \in \Z$. We work directly. Since $x \in Z$, and $\mod{x^2}{0}{4}$ or $\mod{x^2}{1}{4}$. We have two cases.
+
+\textbf{Case 1}: Suppose $\mod{x^2}{0}{4}$. Then $\mod{x^4}{0}{4}$. Therefore $\mod{x^2}{x^4}{4}$ and $4|(n^4 - n^2)$.
+
+\textbf{Case 2}: Suppose $\mod{x^2}{1}{4}$. Then $\mod{x^4}{1}{4}$. Therefore $\mod{x^2}{x^4}{4}$ and $4|(n^4 - n^2)$.
+
+In all cases, $4|(x^4-x^2)$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.4}
+Let $a,b,c,n \in \Z$. If $\mod{a}{b}{n}$ and $\mod{b}{c}{n}$, show that \\ $\mod{a}{c}{n}$.
+
+If we know $\mod{11}{-3}{7}$ and $\mod{-3}{4}{7}$, can we say $\mod{11}{4}{7}$?
+\end{exercise}
+
+\begin{proof}
+Let $a,b,c,n \in \Z$. We work directly. Assume $\mod{a}{b}{n}$ and $\mod{b}{c}{n}$. Thus $n|(a-b)$ and $n|(b -c)$, and $(a-b)=nk$ for some $k \in \Z$ and $(b-c)=nl$ for some $l \in \Z$. We have
+
+\begin{eqnarray*}
+(a-b) &=& nk \\
+(b-c) &=& nl \\
+a - (nl + c) &=& nk \\
+a - c &=& nk + nl \\
+(a-c) &=& n(kl)
+\end{eqnarray*}
+
+From that we conclude that $n|(a - c)$. Therefore $\mod{a}{c}{n}$
+
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.5}
+Prove, for any $n \in \Z$, that $3|n$ if and only if $3|n^2$. (Hint: Use the idea in Example 8.14 to divide the proof into cases.)
+\end{exercise}
+
+\begin{proof}
+($\Rightarrow$): We first prove if $3|n$ then $3|n^2$. We work directly. Assume $3|n$, thus $n = 3k$ for some $k \in \Z$. We have $n^2 = (3k)^2 = 9k^2 = 3(3k^2)$. Therefore $3|n^2$.
+
+($\Leftarrow$): We now prove conversely, that if $3|n^2$, then $3|n$. We work directly, so assume $3|n^2$. Thus $n^2 = 3k$. We now have $n=\sqrt{3k}$, since $n,k \in \Z$ we can conclude $n = 3l$ for some $l \in \Z$. Therefore $3|n$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.6}
+Prove $3|(2n^2 + 1)$ if and only if $3 \nmid n$, for $n \in \Z$.
+\end{exercise}
+
+\begin{proof}
+($\Leftarrow$): We first prove if $3 \nmid n$ then $3|(2n^2 + 1)$. We work directly. Assume $3 \nmid n$. We have two cases:
+
+\textbf{Case 1}: Suppose $n = 3k + 1$ for some $k \in \Z$. We have
+\[2n^2 + 1 = 2(3k + 1)^2 + 1 = 2(9k^2 + 6k + 1) + 1 = 18k^2 + 12k + 3 = 3(6k^2 + 4k + 1)\]
+Since $6k^2 + 4k + 1 \in \Z$, we conclude $3|(2n^2 + 1)$.
+
+\textbf{Case 2}: Suppose $n = 3k + 2$ for some $k \in \Z$. We have
+\[2n^2 + 1 = 2(3k + 2)^2 + 1 = 2(9k^2 + 12k + 4) + 1 = 18k^2 + 24k + 9 = 3(6k^2 + 8k + 3)\]
+Since $6k^2 + 8k + 3 \in \Z$, we conclude $3|(2n^2 + 1)$.
+
+($\Rightarrow$): Conversely we prove if $3|(2n^2 + 1)$, then $3 \nmid n$. We work contrapositively. We assume $3|n$. Thus $n = 3k$ for some $k \in \Z$. We have
+\[2n^2+ 1 = 2(3k)^2 + 1 = 2(9k^2) + 1 = 18k^2 + 1 = 3(6k^2) + 1\].
+Therefore $3 \nmid (2n^2 + 1)$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.7}
+Let $a,b,c,d,n \in \Z$. If $\mod{a}{b}{n}$ and $\mod{c}{d}{n}$, prove that \\ $\mod{ac}{bd}{n}$.
+
+What does this statement say if we take $c = a$ and $d = b$?
+
+We know that $\mod{19}{5}{7}$. Do we then know $\mod{19^2}{5^2}{7}$? How about \\ $\mod{19^3}{5^3}{7}$?
+\end{exercise}
+
+\begin{proof}
+Let $a,b,c,d,n \in \Z$. We work directly. Assume $\mod{a}{b}{n}$ and $\mod{c}{d}{n}$. Thus $n|(a-b)$ and $n|c-d$, we can use that to deduce $(a-b)=nk$ and $(c-d)=nl$ for some $k, l \in \Z$. We have
+\begin{eqnarray*}
+(ac - bd) &=& (nk + b)(nl + d) - bd = n^2kl + dnk + bnl + db - db \\
+&=& n(nkl + dk + bl)
+\end{eqnarray*}
+Since $(nkl + dk + bl) \in \Z$, we conclude $n|(ac - bd)$. Therefore $\mod{ac}{bd}{n}$.
+\end{proof}
+
+\begin{proof}[Comment 1]
+If $c = a$ and $d = b$, this means that $\mod{a^2}{b^2}{n}$, in other words  \\ $n|(a^2 - b^2)$.
+\end{proof}
+
+\begin{proof}[Comment 2]
+The proof and the comment above seem to confirm this assumption.
+\end{proof}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.8}
+Prove Theorem 8.22; for any $x,y \in \R$, we have $|xy|=|x||y|$
+\end{exercise}
+
+\begin{proof}
+Let $x,y \in \R$. We work directly. Without loss of generality, we may assume that $x \geq y$, so that if only one of $x,y$ is nonnegative, it is $x$. Since $|xy|=|x||y|=0$ if either $x$ or $y$ is $0$, we can also assume that $x,y \not= 0$. We have the following cases
+
+\textbf{Case 1}: Suppose $x > 0$ and $y > 0$. Then $xy > 0$, so
+\[|xy| = xy = |x||y|\]
+
+\textbf{Case 2}: Suppose $x > 0$ and $y < 0$. Then $xy < 0$, so
+\[|xy|= -xy = xy = |x||y| \text{ since $xy < 0$, and $-xy > 0$}\]
+Hence, in all cases the theorem is true.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{8.9}
+Let $a \in \R$. Prove that $a^2 \leq 1$ if and only if $-1 \leq a \leq 1$. In the proof you may use the following two facts that are true for any $a,b,c \in \R$.
+
+(1) If $a < b$ and $c > 0$, then $ac < bc$.
+
+(2) If $a < b$ and $c < 0$, then $ac > bc$.
+\end{exercise}
+
+\begin{proof}
+($\Rightarrow$): We first prove that if $a^2 \leq 1$, then $-1 \leq a \leq 1$. We work directly. Assume $a^2 \leq 1$. We then have:
+\[(-1)^2 \leq a^2 \leq 1^2\]
+\[\sqrt{(-1)^2} \leq \sqrt{a^2} \leq \sqrt{1^2}\]
+\[-1 \leq a \leq 1\]
+
+($\Leftarrow$): Conversely we prove that if $-1 \leq a \leq 1$, then $a^2 \leq 1$. We work directly. Assume $-1 \leq a \leq 1$. We have
+\[-1 \leq a \leq 1\]
+\[(-1)^2 \leq a^2 \leq 1^2\]
+\[1 \leq a^2 \leq 1\]
+\[a^2 \leq 1\]
+Hence $a^2 \leq 1$ if and only if $-1 \leq a \leq 1$.
+\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}
