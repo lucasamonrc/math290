@@ -1,0 +1,252 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\renewcommand{\mod}[3]{#1 \equiv #2 \pmod{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Lucas Castro}  \\
+Math 290 Sec 01\\
+Date 02/01/2023
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment HW 10} \\
+\textsf{Exercises: 10E}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.1}
+For each element and set listed below, explain why the element does or does not belong to the set.
+
+(a) Is $3 \in \{1,2,3,4,5,6,7\}$?
+
+(b) Is $\pi \in \{1,2,3,4,5,6,7\}$?
+
+(c) Is $\pi \in \R$?
+
+(d) Is $2/3 \in \{x \in \R: x < 1\}$?
+
+(e) Is $2/3 \in \{x \in \Z: x < 1\}$?
+\end{exercise}
+
+\begin{proof}[(a)]
+$3$ belongs to $\{1,2,3,4,5,6,7\}$, because it is listed as an element in the set.
+\end{proof}
+
+\begin{proof}[(b)]
+$\pi$ does not belongs to $\{1,2,3,4,5,6,7\}$, because it is not listed as an element in the set.
+\end{proof}
+
+\begin{proof}[(c)]
+$\pi$ belongs to $\R$, because $\pi \in \R - \Q$. And $(\R - \Q) \subset \R$. 
+\end{proof}
+
+\begin{proof}[(d)]
+$2/3 \in \{x \in \R: x < 1\}$, because $2/3 \in \Q$, $\Q \subset \R$, and $2/3 = 0.\overline{6} < 1$. 
+\end{proof}
+
+\begin{proof}[(e)]
+$2/3 \notin \{x \in \Z: x < 1\}$, because $2/3 \notin \Z$. 
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.2}
+Fix
+\[A = \{(x,y) \in \Z \times \Z : 4|(x - y)\}\]
+and fix
+\[B=\{(x,y) \in \Z \times \Z : x \text{ and } y \text{ have the same parity}\}\]
+Prove $A \subseteq B$.
+\end{exercise}
+
+\begin{proof}
+Assume $(a,b) \in A$. Thus $(a,b) \in \Z \times \Z$ and $4|(a-b)$. We can write $(a-b) = 4k$ for some $k \in \Z$. We have two cases to consider.
+
+\textbf{Case 1}: Suppose $a$ and $b$ are even. Then $a = 2m$ and $b = 2n$ for some $m,n \in \Z$. We have
+\[(a-b)=(2m - 2n) = 2(m - n) = 4k = 2(2k)\] 
+Satisfying the conditions for both $A$ and $B$.
+
+\textbf{Case 2}: Suppose $a$ and $b$ are odd. Then $a = 2m + 1$ and $b = 2n + 1$ for some $m,n \in \Z$. We have
+\[(a-b)=(2m + 1) - (2n + 1) = 2m - 2n = 2(m - n) = 4k = 2(2k)\]
+Satisfying the conditions for both $A$ and $B$.
+
+In all cases, we have demonstrated that $(a,b)$ satisfies all the properties to belong to B, so $(a,b) \in B$.
+
+Since $(a,b)$ was arbitrary, we have now shown $A \subseteq B$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.3}
+Let $X$ be the set of integers which are congruent to $-1$ modulo 6 and let $Y$ be the set of integers which are congruent to $2$ modulo $3$. Prove $X \subseteq Y$.
+\end{exercise}
+
+\begin{proof}[Set builder notation]
+\[X = \{n \in \Z : \mod{n}{-1}{6}\}\]
+\[Y = \{n \in \Z : \mod{n}{2}{3}\}\]
+\end{proof}
+
+\begin{proof}
+Assume $a \in X$. Thus $a \in \Z$ and $\mod{a}{-1}{6}$ (or $6|(a - (-1))$). We can write $(a + 1) = 6k$ for some $k \in \Z$. Therefore, $a = 6k - 1$. 
+
+We now show that $a$ satisfies the all conditions for $Y$, namely $a \in \Z$ (which is true), and $\mod{a}{2}{3}$. We can write $3|(a-2)$, hence $(a - 2) = 3l$ for some $l \in \Z$. We have
+\begin{eqnarray*}
+(a - 2) &=& 6k - 1 - 2 = 6k - 3 \\
+        &=& 3(2k - 1) = 3l
+\end{eqnarray*}
+This shows that $3|(a-2)$ ($\mod{a}{2}{3}$). Therefore, $a$ satisfies all properties of both $X$ and $Y$. Since $a$ was arbitrary, we have now shown that $X \subseteq Y$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.4}
+Let $A$ and $B$ be sets inside some universal set $U$.
+
+(a) Prove that $\overline{A \cap B} \subseteq \overline{A} \cup \overline{B}$.
+
+(b) Prove that $\overline{A} \cup \overline{B} \subseteq \overline{A \cap B}$.
+
+(c) Putting those two previous parts together, what have you proved?
+\end{exercise}
+
+\begin{proof}[(a) Proof]
+Assume $x \in \overline{A \cap B}$. Thus $\lnot (x \in A \cap B)$. In other words $\lnot (x \in A \text{ and } x \in B)$. Using De Morgan's law, we have $\lnot (x \in A)$ or $\lnot (x \in B)$. In other words $x \in \overline{A}$ or $x \in \overline{B}$. Using the definition of union, we have $\overline{A} \cup \overline{B}$. Therefore, $\overline{A \cap B} \subseteq \overline{A} \cup \overline{B}$.
+\end{proof}
+
+\begin{proof}[(b) Proof]
+Assume $x \in \overline{A} \cup \overline{B}$. Thus $\lnot (x \in A)$ or $\lnot (x \in B)$. Using De Morgan's law, we have $\lnot (x \in A \text{ and } x \in B)$. Using the definition of intersection, we have $x \in \overline{A \cap B}$. Therefore, $\overline{A} \cup \overline{B} \subseteq \overline{A \cap B}$.
+\end{proof}
+
+\begin{proof}[(c) Answer]
+From proofs (a) and (c) we can conclude that $\overline{A} \cup \overline{B} = \overline{A \cap B}$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.5}
+Let $X$ and $Y$ be sets. Prove $X - (X - Y) \subseteq X \cap Y$. (Hint: Remember that $s \in S - T$ means $s \in S$ and $s \notin T$. Thus, $s \notin S - T$ means $s \notin S$ or $s \in T$.)
+\end{exercise}
+
+\begin{proof}
+Assume $a \in X - (X - Y)$. Thus $a \in X$ and $a \notin X - Y$. We can write $a \notin X - Y$ as $a \notin X$ or $a \in Y$. We have already established that $a \in X$, therefore we must conclude that $a \in Y$. We now have $a \in X$ and $a \in Y$. By definition, $a \in X$ and $a \in Y$ is written as $a \in X \cap Y$. Since $a$ was arbitrary, we have now shown that $X - (X - Y) \subseteq X \cap Y$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.6}
+Given a set $X$, prove that $X \cup \emptyset = X$. (Hint: If you have a case where $x \in \emptyset$, then you know that case doesn't actually happen.)
+\end{exercise}
+
+\begin{proof}
+We first prove the inclusion $X \cup \emptyset \subseteq X$. Assume $a \in X \cup \emptyset$. Therefore $a \in X$ or $a \in \emptyset$. Since we know that $a \in \emptyset$ never happens, we consider only $a \in X$. Therefore, by definition, $a \in X \cup \emptyset$. Since $a$ was arbitrary, we have now shown that $X \cup \emptyset \subseteq X$.
+
+Conversely, we now show that $X \subseteq X \cup \emptyset$. Assume $b \in X$. By definition, $b \in X \cup \emptyset$ can be expressed as $b \in X$ or $b \in \emptyset$. Since we know that $b \in \emptyset$ never happens, we conclude $b \in X$. Since $b$ was arbitrary, we have now shown that $X \subseteq X \cup \emptyset$.
+
+Since $X \cup \emptyset \subseteq X$ and $X \subseteq X \cup \emptyset$, we have proven that $X \cup \emptyset = X$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.7}
+Let $n \in \Z$. Prove that
+\[\{x \in \Z:n|x\} = \{x \in \Z : \mod{x}{0}{n}\}\]
+\end{exercise}
+
+\begin{proof}
+We first prove the inclusion $\{x \in \Z:n|x\} \subseteq \{x \in \Z : \mod{x}{0}{n}\}$. Assume $a \in \{x \in \Z:n|x\}$. Thus, $a \in \Z$ and $n|a$. Hence, $a = nk$ for some $k \in \Z$. We can write \\ $\mod{a}{0}{n}$ as $n|(a - 0)$. Thus $(a-0) = nl$ for some $l \in \Z$. We have 
+\[(a-0) = (nk - 0) = nk = nl\] 
+Therefore, an arbitrary element $a$ satisfies all conditions in both sets.
+
+Now we show, conversely, that $\{x \in \Z : \mod{x}{0}{n}\} \subseteq \{x \in \Z:n|x\}$. Assume $b \in \{x \in \Z : \mod{x}{0}{n}\}$. Thus, $b \in \Z$ and $\mod{b}{0}{n}$. We rewrite $\mod{b}{0}{n}$ as $n|(b - 0)$. So, $b - 0 = b = nk$ for some $k \in \Z$. We have that $n|b$ is defined as $b = nl$ for some $l \in \Z$. Therefore, an arbitrary element $b$ satisfies all conditions in both sets.
+
+Since 
+\[\{x \in \Z:n|x\} \subseteq \{x \in \Z : \mod{x}{0}{n}\} \text{ and } \{x \in \Z : \mod{x}{0}{n}\} \subseteq \{x \in \Z:n|x\}\]
+we conclude that $\{x \in \Z:n|x\} = \{x \in \Z : \mod{x}{0}{n}\}$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.8}
+Let $A$, $B$, and $C$ be sets. Prove that
+\[A - (B \cap C) \subseteq (A - B) \cup (A - C)\]
+\end{exercise}
+
+\begin{proof}
+Let $n \in A - (B \cap C)$ for an arbitrary $n$. By definition of set difference, $n \in A$ and $n \notin B \cap C$. In other words, $n \in A$ and $n \notin B$ or $n \notin C$. We consider each case.
+
+\textbf{Case 1}: Suppose $n \notin B$. By the set difference definition we have $n \in A - B$ (since $n \in A)$. Therefore $n \in (A - B) \cup (A - C)$
+
+\textbf{Case 2}: Suppose $n \notin C$. By the set difference definition we have $n \in A - C$ (since $n \in A)$. Therefore $n \in (A - B) \cup (A - C)$
+
+In all cases $n \in (A - B) \cup (A - C)$.
+
+Since $n$ is arbitrary, we have shown that for any element $n \in A - (B \cap C)$, it must also be in $n \in (A - B) \cup (A - C)$. Therefore $A - (B \cap C) \subseteq (A - B) \cup (A - C)$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{10.9}
+For each $n \in \N$, define $S_n = \{m \in \Z: m \leq n\}$. Prove that
+\[\bigcup_{n \in \N} S_n = \Z\]
+(Recall that by Definition 2.9,
+\[x \in \bigcup_{i \in I} S_i\]
+means that $x \in S_i$ for some $i \in I$.)
+\end{exercise}
+
+\begin{proof}
+Let $a$ be an arbitrary element of $\Z$. For any $a \in Z$, there exists a natural number $n$ such that $a \leq n$. Therefore for any $a \in \Z$, $a \in S_n$ for some natural number $n$. Since $a$ is arbitrary, we have shown that for any element $a \in \Z$, it must also be in $S_n$ for some natural number $n$. Therefore, $\Z \subseteq \bigcup_{n \in \N} S_n$.
+
+Conversely, for any natural number $n$, $S_n \subseteq \Z$. Therefore, $\bigcup_{n \in \N} S_n \subseteq \Z$.
+
+Therefore,
+\[\bigcup_{n \in \N} S_n = \Z\]
+
+\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}
