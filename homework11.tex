@@ -1,0 +1,178 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\renewcommand{\mod}[3]{#1 \equiv #2 \pmod{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Lucas Castro}  \\
+Math 290 Sec 01\\
+Date 02/04/2023
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment 11} \\
+\textsf{Exercises: 11E}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.1}
+Prove the following
+
+(a) There exist $a,b \in \Q$ such that $a^b \in \Q$.
+
+(b) There exist $a,b \in \Q$ such that $a^b \in \R - \Q$.
+
+(c) There exist $a,b \in \R - \Q$ such that $a^b \in \R - \Q$.
+
+(d) There exist $a \in \Q$ and $b \in \R - \Q$ such that $a^b \in \Q$.
+
+(e) There exist $a \in \Q$ and $b \in \R - \Q$ such that $a^b \in \R - \Q$.
+
+(f) There exist $a \in \R - \Q$ and $b \in \Q$ such that $a^b \in \Q$.
+
+(g) There exist $a \in \R - \Q$ and $b \in \Q$ such that $a^b \in \R - \Q$.
+\end{exercise}
+
+\begin{proof}[Proof (a)]
+Fix $a = 2$ and $b = 3$. We see that $a^b = 2^3 = 8$. Since $2,3,8 \in \Q$, there exists $a,b \in \Q$ such that $a^b \in \Q$.
+\end{proof}
+
+\begin{proof}[Proof (b)]
+Fix $a = 2$ and $b = 1/2$. We see that $a^b = 2^{1/2} = \sqrt{2}$. Since $2,1/2 \in \Q$ and $\sqrt{2} \in \R - \Q$, there exists $a,b \in \Q$ such that $a^b \in \R - \Q$.
+\end{proof}
+
+\begin{proof}[Proof (c)]
+Fix $a = \sqrt{2}$ and $b = \sqrt{2}$. We see that $a^b = \sqrt{2}^{\sqrt{2}}$. Since $\sqrt{2}, \sqrt{2}^{\sqrt{2}} \in \R - \Q$, there exist $a,b \in \R - \Q$ such that $a^b \in \R - \Q$. 
+\end{proof}
+
+\begin{proof}[Proof (d)]
+Fix $a = 1$ and $b = \sqrt{2}$. We see that $a^b = 1^{\sqrt{2}} = 1$. Since $1 \in \Q$ and $\sqrt{2} \in \R - \Q$, there exist $a \in \Q$ and $b \in \R - \Q$ such that $a^b \in \Q$.
+\end{proof}
+
+\begin{proof}[Proof (e)]
+Fix $a = 2$ and $b = \pi$. We see that $a^b = 2^{\pi}$. Since $2 \in \Q$ and $\pi \in \R - \Q$, there exist $a \in \Q$ and $b \in \R - \Q$ such that $a^b \in \R - \Q$.
+\end{proof}
+
+\begin{proof}[Proof (f)]
+Fix $a = \sqrt{2}$ and $b = 2$. We see that $a^b = \sqrt{2}^2 = 2$. Since $\sqrt{2} \in \R - \Q$ and $2 \in \Q$, there exist $a \in \R - \Q$ and $b \in \Q$ such that $a^b \in \Q$.
+\end{proof}
+
+\begin{proof}[Proof (g)]
+Fix $a = \sqrt{2}$ and $b = 1$. We see that $a^b = \sqrt{2}^1 = \sqrt{2}$. Since $\sqrt{2} \in \R - \Q$ and $1 \in \Q$, there exist $a \in \R - \Q$ and $b \in \Q$ such that $a^b \in \R - \Q$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.2}
+Prove or disprove: Given $x \in \Q$ and $y \in \R - \Q$, then $xy \in \R - \Q$.
+\end{exercise}
+
+\begin{proof}[Disproof]
+Fix $x = 0$. We have $xy = 0y = 0$. Since $0 \in \Q$, $x = 0$ and $y \in \R - \Q$ is a counterexample.
+
+Therefore if $x \in \Q$ and $y \in \R - \Q$, then $xy \in \R - \Q$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.3}
+Prove or disprove: Let $s \in \Z$. If $6s - 3$ is odd, then $s$ is odd.
+\end{exercise}
+
+\begin{proof}[Disproof]
+Fix $s = 2$. We have
+$6s - 3 = 6(2) - 3 = 12 - 3 = 9$
+is odd. However $s = 2$ is even, and therefore it is a counterexample.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.4}
+Prove or disprove: There exists an integer $x$ such that $x^2 + x$ is odd.
+\end{exercise}
+
+\begin{proof}[Disproof]
+We can disprove the statement above by proving that for every integer $x$, $x^2 + x$ is even. Let $x \in \Z$. We consider two cases
+
+\textbf{Case 1}: Suppose $x$ is even. Thus $x = 2k$ for some $k \in Z$. We have
+\[x^2 + x = (2k)^2 + 2k = 4k^2 + 2k = 2(2k^2 + k)\]
+is even
+
+\textbf{Case 2}: Suppose $x$ is odd. Thus $x = 2l + 1$ for some $l \in \Z$. We have
+\[x^2 + x = (2k + 1)^2 + (2k + 1) = 4k^2 + 4k + 1 + 2k + 1 = 4k^2 + 6k + 2 = 2(2k^2 + 3k + 1)\]
+is even.
+
+In all cases, $x^2 + x$ is even; therefore, there is not an integer $x$ such that $x^2 + x$ is odd.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.5}
+Prove or disprove: Given any positive rational number $a$, there is an irrational number $x \in (0,a)$.
+\end{exercise}
+
+\begin{proof}
+Let $a \in \Q^+$. Assume $a > 0$. We can define $a$ as an arbitrary positive rational number. Fix $x = \frac{a}{\sqrt{2}}$. We have $x < a$, in other words $\frac{a}{\sqrt{2}} < a$. Therefore $0 < \frac{a}{\sqrt{2}} < a$. Since $\frac{a}{\sqrt{2}} \in \R - \Q$, $\frac{a}{\sqrt{2}} \in (0, a)$, and $a$ is an arbitrary positive rational number, we proved that there is at least one irrational number $x \in (0, a)$. 
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{11.6}
+Prove that for any two real numbers $x < y$, there exists a rational number in the interval $(x, y)$. In this proof you may freely use the fact that if two real numbers are more than $1$ apart, then an integer lies between them.
+\end{exercise}
+
+\begin{proof}
+Let $x,y \in \R$. Assume $x < y$. Thus $0 < y - x$. We can pick a sufficiently large number $n \in \N$ such that $\frac{1}{n} < y - x$. Now, let $k \in \Z$ be the largest integer for which $\frac{k}{n} \leq x$ and $k \geq 0$, and let $z = \frac{k + 1}{n}$. We can conclude the following:
+\begin{itemize}
+  \item $x < z$, since $k$ is the largest integer for which $\frac{k}{n} \leq x$, therefore $z \not= \frac{k + 1}{n} \leq x$.
+  \item $z < y$, since $z = \frac{k}{n} + \frac{1}{n}$ and we know that $\frac{k}{n} \leq x$ and $\frac{1}{n} \leq y - x$.
+  \item $z \in \Q$, since $k + 1, n \in \Z$.
+\end{itemize}
+
+Therefore, there exists a rational number $z$ in the interval $(x, y)$.
+\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}

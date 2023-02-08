@@ -1,0 +1,261 @@
+\documentclass[12pt,oneside]{article}
+
+% This package simply sets the margins to be 1 inch.
+\usepackage[margin=1in]{geometry}
+
+% These packages include nice commands from AMS-LaTeX
+\usepackage{amssymb,amsmath,amsthm}
+
+% Make the space between lines slightly more
+% generous than normal single spacing, but compensate
+% so that the spacing between rows of matrices still
+% looks normal.  Note that 1.1=1/.9090909...
+\renewcommand{\baselinestretch}{1.1}
+\renewcommand{\arraystretch}{.91}
+
+% Define an environment for exercises.
+\newenvironment{exercise}[1]{\vspace{.1in}\noindent\textbf{Exercise #1 \hspace{.05em}}}{}
+
+% define shortcut commands for commonly used symbols
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+
+\renewcommand{\mod}[3]{#1 \equiv #2 \pmod{#3}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+% If you use Overleaf, the name of the project will be determined by
+% what you enter as the document title.
+\title{Math 290 Homework Template}
+
+\begin{flushright}
+\textsc{Lucas Castro}  \\
+Math 290 Sec 01\\
+Date 02/06/2023
+\end{flushright}
+
+\begin{center}
+\textsf{Assignment 12} \\
+\textsf{Exercises: Section 12}
+\end{center}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.1}
+For sets $A$,$B$,$C$, prove that if $A \subseteq B \cap C$, then $A \subseteq B$. Also give an example to show that the converse fails.
+\end{exercise}
+
+\begin{proof}
+We work directly. Assume $A \subseteq B \cap C$. Let $x \in A$. Since $A \subseteq B \cap C$, we know that $x \in B \cap C$. Therefore, $x \in B$ and $x \in C$. Since $x \in A$ and $x \in B$, we conclude $A \subseteq B$.
+\end{proof}
+
+\begin{proof}[Converse counter example]
+The converse is written as follows: if $A \subseteq B$, then $A \subseteq B \cap C$. The counter example is shown below:
+
+Fix $A = \{a,b,c\}$, $B = \{a,b,c,d\}$, and $C = \{d,e,f\}$. We have $B \cap C = \{d\}$. Therefore we can verify that $A \subseteq B$ but $A \subsetneq B \cap C$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.2}
+Give a complete proof for Proposition 12.4, using the sketched outline.
+\end{exercise}
+
+\begin{proof}
+Let $S$ and $T$ be sets. 
+
+($\Rightarrow$): Assume $S \subseteq T$.
+
+\hspace{\parindent} ($\subseteq$): We first show $S \subseteq S \cap T$. Assume $x \in S$. Since $S \subseteq S \cap T$, we conclude that $x \in S \cap T$.
+
+\hspace{\parindent} ($\supseteq$): We now show $S \supseteq S \cap T$. Assume $y \in S \cap T$. Therefore, $y \in S$ and $y \in T$. Since $y \in S \cap T$, and $y \in S$, we conclude $S \supseteq S \cap T$. \\
+Thus, we have shown that $S = S \cap T$.
+
+($\Leftarrow$): Assume $S = S \cap T$.
+
+\hspace{\parindent} ($\subseteq$): We show $S \subseteq T$. Assume $z \in S$. Since $S = S \cap T$, we know that $z \in S \cap T$. Therefore $z \in S$ and $z \in T$. Hence, we conclude $S \subseteq T$.
+
+We have now shown that $S \subseteq T$ if and only if $S = S \cap T$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.3}
+Consider the statement:
+\[\text{Let $S$ and $T$ be sets. Then $S \subseteq T$ if and only if $T = S \cup T$.}\]
+Outline a proof of the statement. (Give as much detail as in the outline after Proposition 12.4. You do not need to prove the statement.)
+\end{exercise}
+
+\begin{proof}[Proof Outline]
+Let $S$ and $T$ be sets. \\
+($\Rightarrow$): Assume $S \subseteq T$
+
+($\subseteq)$: We first show $T \subseteq S \cup T$.
+
+\hspace{\parindent} Assume $x \in T$.
+
+\hspace{\parindent} ...
+
+\hspace{\parindent} Conclude $x \in S \cup T$.
+
+($\supseteq)$: We now show $T \supseteq S \cup T$.
+
+\hspace{\parindent} Assume $y \in S \cup T$.
+
+\hspace{\parindent} ...
+
+\hspace{\parindent} Conclude $y \in T$. \\
+($\Leftarrow$): Assume $T = S \cup T$
+
+($\subseteq)$: We show $S \subseteq T$.
+
+\hspace{\parindent} Assume $z \in S$.
+
+\hspace{\parindent} ...
+
+\hspace{\parindent} Conclude $z \in T$.
+
+Conclude that $S \subseteq T$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.4}
+Let $S$ and $T$ be sets. Prove the following.
+
+(a) If $S \cap T = T \cup S$, then $S = T$.
+
+(b) If $S \times T = T \times S$ and both $S$ and $T$ are nonempty, then $S = T$.
+\end{exercise}
+
+\begin{proof}[Proof a]
+Let $S$ and $T$ be sets. We work directly. Assume $S \cap T = T \cup S$. Thus $S \cap T \subseteq T \cup S$ and $T \cup S \subseteq S \cap T$. Let $x \in S \cap T$. We can conclude that for all $x \in S$, $x \in T$. Therefore we have $S = T$.
+\end{proof}
+
+\begin{proof}[Proof b]
+Let $S$ and $T$ be sets. We work directly. Assume $S \times T = T \times S$, $S \not= \emptyset$, and $T \not= \emptyset$. We have $(x, y) \in S \times T$ for all $x \in S$ and all $y \in T$. From original assumption we conclude $(x, y) \in T \times S$, therefore $x \in T$ and $y \in S$. We conclude $S = T$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.5}
+Let $S$ and $T$ be sets. Prove that $S = T$ if and only if $S - T = T - S$. (Hint: For the backwards direction, work contrapositively. For any sets $U$ and $V$, note that if $U \not= V$, then either there is some element $x \in U$ with $x \notin V$, or vice verse.)
+\end{exercise}
+
+\begin{proof}
+Let $S$ and $T$ be sets.
+
+($\Rightarrow$): We first show that if $S = T$, then $S - T = T - S$. We work directly. Assume $S = T$. Thus, $S \subseteq T$ and $T \subseteq S$. Now, for all $x \in S$, $x \in T$. We have $S - T = \emptyset$, and since $\forall x \in S, x \in T$ we can write $T - S = \emptyset$. Therefore, $S - T = T - S$.
+
+($\Leftarrow$): Conversely we sow that if $S - T = T - S$, then $S = T$. We work contrapositively. Assume $S \not= T$. We consider the cases below:
+
+\textbf{Case 1}: Suppose $x \in S$ and $x \notin T$. Then $S - T = S$ and therefore $S - T \not= T - S$.
+
+\textbf{Case 2}: Suppose $y \in T$ and $y \notin S$. Then $T - S = T$ and therefore $S - T \not= T - S$.
+
+In all cases $S - T \not= T - S$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.6}
+Let $S$ and $T$ be sets. Prove or disprove: $S = T$ if and only if $S - T \subseteq T$.
+\end{exercise}
+
+\begin{proof}
+Let $S$ and $T$ be sets.
+
+($\Rightarrow$): We first show that if $S = T$, then $S - T \subseteq T$. We work directly. Assume $S = T$. Thus, for all $x \in S$, $x \in T$. We have $S - T = \emptyset$. By definition, $\emptyset \subseteq T$. Therefore, $S - T \subseteq T$.
+
+($\Leftarrow$): Conversely, if $S - T \subseteq T$, then $S = T$. Assume, by way of contradiction, that $S - T \subseteq T$ and $S \not= T$. Then, $x \in S$ and $x \in T$ for some arbitrary $x$. Since we assumed $S - T \subseteq T$, we have $x \in S - T$ and $x \in T$ which is a contradiction when $S \not= T$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.7}
+Let $S$ be a set. Prove that $\emptyset \times S = \emptyset$.
+
+(Hint: It suffices to show that the assumption $x \in \emptyset \times S$ leads to a contradiction.)
+\end{exercise}
+
+\begin{proof}
+Let $S$ be a set. Assume, by way of contradiction, that $\emptyset \times S \not= \emptyset$. Thus $(x,y) \in \emptyset \times S$ where $y \in S$ and $x \in \emptyset$, which is a contradiction.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.8}
+For sets $S$ and $T$, show that $S \times T = \emptyset$ if and only if $S = \emptyset$ or $T = \emptyset$.
+\end{exercise}
+
+\begin{proof}
+($\Rightarrow$): We first show that if $S \times T = \emptyset$ then $S = \emptyset$ or $T = \emptyset$. Assume, by way of contradiction, that $S \not= \emptyset$ and $T \not= \emptyset$. Let $x \in S$ and $y \in T$ for some arbitrary $x$ and $y$. We have $(x, y) \in S \times T$, which is a contradiction.
+
+($\Leftarrow$): Conversely, we show that if $S = \emptyset$ or $T = \emptyset$, then $S \times T = \emptyset$. We assume $S = \emptyset$ or $T = \emptyset$, and consider two cases.
+
+\textbf{Case 1}: Suppose $S = \emptyset$. Then $S \times T = \emptyset \times T = \emptyset$.
+
+\textbf{Case 2}: Suppose $T = \emptyset$. Then $S \times T = S \times \emptyset = \emptyset$.
+
+In all cases, $S \times T = \emptyset$. \\
+Therefore $S \times T = \emptyset$ if and only if $S = \emptyset$ or $T = \emptyset$.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.9}
+Consider the statement: Given sets $A,B,C$ if $A \times B \subseteq B \times C$ and $B \not= \emptyset$, then $A \subseteq C$.
+
+Write an outline of a proof, and then (separately) give a complete proof. Is the conclusion true if we remove the hypothesis that $B \not= \emptyset$?
+\end{exercise}
+
+\begin{proof}[Proof Outline]
+Let $A$, $B$, and $C$ be sets. \\
+Assume $A \times B \subseteq B \times C$ and $B \not= \emptyset$.
+
+Show $x \in A$ and $x \in C$ \\
+Conclude $A \subseteq C$
+\end{proof}
+
+\begin{proof}
+Let $A$, $B$, and $C$ be sets. We work directly. Assume $A \times B \subseteq B \times C$ and $B \not= \emptyset$. Let $x \in A$ and $y \in B$ for some arbitrary $x$ and $y$. Thus $(x,y) \in A \times B$. Since $A \times B \subseteq C$, it follows that $(x,y) \in B \times C$. So, there exists a $z \in C$ such that $(x,y) = (y,z)$. Since $y$ is common to both tuples, it follows that $x = z$. Thus $x \in C$, and $A \subseteq C$.
+\end{proof}
+
+\begin{proof}[Comment]
+If $B \not= \emptyset$ was removed from the hypothesis, then the conclusion would not be necessarily true. Since $A \times \emptyset = \emptyset$ and therefore it is a subset for every possible set, the hypothesis would be true while the conclusion could possibly be false.
+\end{proof}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{exercise}{12.10}
+Prove or disprove the converse of Theorem 12.7.
+
+\textit{Given four sets $A,B,C,D$, if $A \times B \subseteq C \times D$, then $A \subseteq C$ and $B \subseteq D$.}
+\end{exercise}
+
+\begin{proof}
+Let $A$, $B$, $C$, and $D$ be sets. We work directly. Assume $A \times B \subseteq C \times D$. Thus $(x, y) \in A \times B$ and therefore $(x,y) \in C \times D$. We have $x \in A$ and $y \in B$. Since $(x,y) \in C \times D$, it follows that $x \in C$ and $y \in D$. Therefore $A \subseteq C$ and $B \subseteq D$.
+\end{proof}
+
+
+%---------------------------------
+% Don't change anything below here
+%---------------------------------
+
+
+\end{document}
